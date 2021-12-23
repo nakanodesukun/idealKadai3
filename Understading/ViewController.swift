@@ -19,11 +19,12 @@ class ViewController: UIViewController {
     
     
     @IBAction func resultButton(_ sender: Any) {
-        guard let num1 = firstTextField.text.flatMap({ Int($0) }), let num2 = secondTextField.text.flatMap({ Int($0) }) else { resultLabel.text = "数値を入力して下さい"
-            return
+        guard let num1 = firstTextField.text.flatMap({ Int($0) }), let num2 = secondTextField.text.flatMap({ Int($0) }) else {
+            resultLabel.text = "数値を入力して下さい"
+            return //値を返すわけではないので最後に書く
         }
-//        三項演算子で判別
-        let leftNum = leftSwitch.isOn ? -num1: num2
+//        三項演算子で判別 　　if lelseでも代入できる
+        let leftNum = leftSwitch.isOn ? -num1 : num1
         let rightNum = rightSwitch.isOn ? -num2 : num2
         
         firstLabel.text = String(leftNum)
